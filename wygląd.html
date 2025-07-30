@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zero Iz"sm</title>
+  <link rel="stylesheet" href="style.css" />
+  <link id="favicon" rel="icon" href="img/moon_black.png" />
+</head>
+<canvas id="ashParticles" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1;"></canvas>
+<div id="rose-container"></div>
+<body>
+  <div class="moon-switcher">
+    <img src="img/moon_white.png" alt="Motyw biały" onclick="changeTheme('white')" />
+    <img src="img/moon_red.png" alt="Motyw czerwony" onclick="changeTheme('red')" />
+    <img src="img/moon_black.png" alt="Motyw czarny" onclick="changeTheme('black')" />
+  </div>
+
+  <div class="content-box">
+    <h1>Wygląd</h1>
+
+    <div class="slider-container">
+      <div class="slider">
+        <img src="img/3.png" class="slide active" alt="Postać 3" />
+        <img src="img/2.png" class="slide" alt="Postać 1" />
+        <img src="img/1.png" class="slide" alt="Postać 2" />
+      </div>
+      <div class="dots">
+        <span class="dot active" onclick="showSlide(0)"></span>
+        <span class="dot" onclick="showSlide(1)"></span>
+        <span class="dot" onclick="showSlide(2)"></span>
+      </div>
+    </div>
+
+    <div class="back-button">
+      <a href="index.html">⟵ Powrót</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+  </script>
+</body>
+</html>
